@@ -16,6 +16,7 @@ class Damier
         void randomTile();
         void process(int movement);
         std::queue<int> clearArray(int t[], int mvt); // lifo ie un paquet de gâteaux
+        void consolePrint();
 };
 
 int const UP = 0;

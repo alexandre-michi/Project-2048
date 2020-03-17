@@ -176,5 +176,15 @@ void Damier::process(int movement)
         }
     }
     
+void Damier::consolePrint()
+{
+    for (size_t i = 0; i < Size; i++)
+    {
+        for (size_t j = 0; j < Size; j++)
+        {
+            std::cout << tab[i][j] << ' ';
+        }
+        std::cout << endl;        
+    }
     
 }

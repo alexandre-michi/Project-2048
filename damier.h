@@ -14,8 +14,13 @@ class Damier
         ~Damier();
         bool checkDefeat();
         void randomTile();
-        void process();
-        std::queue<int> clearArray(int[] t);
+        void process(int movement);
+        std::queue<int> clearArray(int t[], int mvt); // lifo ie un paquet de gâteaux
 };
+
+int const UP = 0;
+int const RIGHT = 1;
+int const DOWN = 2;
+int const LEFT = 3;
 
 #endif // DAMIER_H

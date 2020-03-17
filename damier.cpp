@@ -46,6 +46,25 @@ bool Damier::checkDefeat()
             else if (j + 1 < Size && t == tab[i][j + 1]){return false;}
         } 
     }
-    return true;
-    
+    return true;   
+}
+
+std::queue<int> Damier::clearArray(int t[], int mvt)
+{
+    std::queue<int> my_queue; // lifo ie un paquet de gâteaux
+    if (mvt == UP || mvt == LEFT)
+    {
+        for (size_t i = 0; i < Size; i++)
+        {
+            if (t[i] != 0){ my_queue.push(t[i]);}
+        }
+    }
+    else
+    {
+        for (size_t i = Size-1; i >= 0; i--)
+        {
+            if (t[i] != 0){ my_queue.push(t[i]);}
+        }
+    }
+    return my_queue;
 }

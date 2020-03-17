@@ -1,5 +1,6 @@
 #include "damier.h"
 #include <stdlib.h>
+#include <iostream>
 
 // Constructeur : allocation de mémoire et initialisation à zéro
 Damier::Damier(int size)
@@ -175,7 +176,7 @@ void Damier::process(int movement)
             }
         }
     }
-    
+
     randomTile();
 }
 
@@ -187,7 +188,6 @@ void Damier::consolePrint()
         {
             std::cout << tab[i][j] << ' ';
         }
-        std::cout << endl;        
+        std::cout << std::endl;
     }
-    
 }

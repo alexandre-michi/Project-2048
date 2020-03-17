@@ -68,3 +68,113 @@ std::queue<int> Damier::clearArray(int t[], int mvt)
     }
     return my_queue;
 }
+
+void Damier::process(int movement)
+{
+    if (movement == UP) 
+    {
+        for (size_t j = 0; j < Size; j++)
+        {
+            size_t index = 0; // to fill tab
+            int *col = new int[Size];
+            for (size_t i = 0; i < Size; i++)
+            {
+                col[i] = tab[i][j];
+                tab[i][j] = 0; // reset column by setting everything to 0
+            }
+
+            std::queue<int> my_queue = clearArray(col, movement); // queue with no 0
+
+            while (!my_queue.empty())
+            {
+                int curr_num = my_queue.front(); // to get value because pop returns void
+                my_queue.pop();
+                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                {
+                    my_queue.pop();               // pop because value already processed
+                    tab[index][j] = curr_num * 2; // fill tab
+                    index++;                      // increase index
+                }
+            }
+        }
+    }
+    else if (movement == DOWN)
+    {
+        for (size_t j = 0; j < Size; j++)
+        {
+            size_t index = Size-1; // to fill tab
+            int *col = new int[Size];
+            for (size_t i = 0; i < Size; i++)
+            {
+                col[i] = tab[i][j];
+                tab[i][j] = 0; // reset column by setting everything to 0
+            }
+
+            std::queue<int> my_queue = clearArray(col, movement); // queue with no 0
+
+            while (!my_queue.empty())
+            {
+                int curr_num = my_queue.front(); // to get value because pop returns void
+                my_queue.pop();
+                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                {
+                    my_queue.pop();               // pop because value already processed
+                    tab[index][j] = curr_num * 2; // fill tab
+                    index--;                      // increase index
+                }
+            }
+        }
+    }
+    else if (movement == LEFT)
+    {
+        for (size_t i = 0; i < Size; i++)
+        {
+            size_t index = 0; // to fill tab
+            int *line = tab[i];
+            std::queue<int> my_queue = clearArray(line, movement); // queue with no 0
+            for (size_t j = 0; j < Size; j++)
+            {
+                tab[i][j] = 0; // reset line by setting everything to 0
+            } 
+            
+            while (!my_queue.empty())
+            {
+                int curr_num = my_queue.front(); // to get value because pop returns void
+                my_queue.pop();
+                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                {
+                    my_queue.pop();               // pop because value already processed
+                    tab[i][index] = curr_num * 2; // fill tab
+                    index++;                      // increase index
+                }
+            }
+        }
+    }
+    else if (movement == RIGHT)
+    {
+        for (size_t i = 0; i < Size; i++)
+        {
+            size_t index = Size-1; // to fill tab
+            int *line = tab[i];
+            std::queue<int> my_queue = clearArray(line, movement); // queue with no 0
+            for (size_t j = 0; j < Size; j++)
+            {
+                tab[i][j] = 0; // reset line by setting everything to 0
+            } 
+
+            while (!my_queue.empty())
+            {
+                int curr_num = my_queue.front(); // to get value because pop returns void
+                my_queue.pop();
+                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                {
+                    my_queue.pop();               // pop because value already processed
+                    tab[i][index] = curr_num * 2; // fill tab
+                    index--;                      // decrease index
+                }
+            }
+        }
+    }
+    
+    
+}

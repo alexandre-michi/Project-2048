@@ -176,6 +176,9 @@ void Damier::process(int movement)
         }
     }
     
+    randomTile();
+}
+
 void Damier::consolePrint()
 {
     for (size_t i = 0; i < Size; i++)

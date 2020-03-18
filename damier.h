@@ -12,10 +12,10 @@ class Damier
     public:
         Damier(int size);
         ~Damier();
-        bool checkDefeat();
+        bool isDefeat();
         void randomTile();
         void process(int movement);
-        std::queue<int> clearArray(int t[], int mvt); // lifo ie un paquet de gâteaux
+        std::queue<int> clearArray(const int t[], int mvt); // lifo ie un paquet de gâteaux
         void consolePrint();
 };
 

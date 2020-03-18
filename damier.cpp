@@ -1,6 +1,7 @@
 #include "damier.h"
 #include <stdlib.h>
 #include <iostream>
+#include <ctime> // to "unseed" rand function with srand and ctime
 
 // Constructeur : allocation de mémoire et initialisation à zéro
 Damier::Damier(int size)

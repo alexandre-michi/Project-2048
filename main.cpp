@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 
-#include "damier.cpp"
+#include "damier.h"
 
 #include <QApplication>
 #include <iostream>
@@ -11,16 +11,23 @@ int main(int argc, char *argv[])
 {
     Damier d = Damier(4);
     int movement;
-    while (!d.checkDefeat())
+
+    while (!d.isDefeat())
     {
         d.consolePrint();
-        cout << "Movement (u, l, r, d) ?";
+        
+        cout << "   0 : UP" << endl;
+        cout << "   1 : RIGHT" << endl;
+        cout << "   2 : DOWN" << endl;
+        cout << "   3 : LEFT" << endl;
+        cout << "Movement : ";
         cin >> movement;
         d.process(movement);
     }
     
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    // QApplication a(argc, argv);
+    // MainWindow w;
+    // w.show();
+    // return a.exec();
+    return 0;
 }

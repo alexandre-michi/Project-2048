@@ -27,8 +27,8 @@ HEADERS += \
 # FORMS += \
 #     mainwindow.ui
 
-FORMS += \
-    mainwindow.ui
+RESOURCES += qml.qrc \
+    qml.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

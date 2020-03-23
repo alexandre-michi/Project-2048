@@ -102,7 +102,11 @@ void Damier::process(int movement)
             {
                 int curr_num = my_queue.front(); // to get value because pop returns void
                 my_queue.pop();
-                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                if (my_queue.empty()) // end of the line/col
+                {
+                    tab[index][j] = curr_num; // fill tab with curr_num (not fusionned)
+                }
+                else if (curr_num == my_queue.front()) // same number, hence needs fusion
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[index][j] = curr_num * 2; // fill tab
@@ -134,7 +138,11 @@ void Damier::process(int movement)
             {
                 int curr_num = my_queue.front(); // to get value because pop returns void
                 my_queue.pop();
-                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                if (my_queue.empty()) // end of the line/col
+                {
+                    tab[index][j] = curr_num; // fill tab with curr_num (not fusionned)
+                }
+                else if (curr_num == my_queue.front()) // same number, hence needs fusion
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[index][j] = curr_num * 2; // fill tab
@@ -165,7 +173,11 @@ void Damier::process(int movement)
             {
                 int curr_num = my_queue.front(); // to get value because pop returns void
                 my_queue.pop();
-                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                if (my_queue.empty()) // end of the line/col
+                {
+                    tab[i][index] = curr_num; // fill tab with curr_num (not fusionned)
+                }
+                else if (curr_num == my_queue.front()) // same number, hence needs fusion
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[i][index] = curr_num * 2; // fill tab
@@ -195,7 +207,11 @@ void Damier::process(int movement)
             {
                 int curr_num = my_queue.front(); // to get value because pop returns void
                 my_queue.pop();
-                if (curr_num == my_queue.front()) // same number, hence needs fusion
+                if (my_queue.empty()) // end of the line/col
+                {
+                    tab[i][index] = curr_num; // fill tab with curr_num (not fusionned)
+                }
+                else if (curr_num == my_queue.front()) // same number, hence needs fusion
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[i][index] = curr_num * 2; // fill tab

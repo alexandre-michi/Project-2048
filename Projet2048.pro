@@ -1,6 +1,4 @@
-# QT       += core gui
 QT += quick
-# greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11 console
 
@@ -18,14 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     damier.cpp \
     main.cpp \
-    # mainwindow.cpp
 
 HEADERS += \
     damier.h \
-    # mainwindow.h
-
-# FORMS += \
-#     mainwindow.ui
 
 RESOURCES += qml.qrc \
     qml.qrc

@@ -4,39 +4,108 @@ import QtQuick.Window 2.12
 Window {
     id: window
     visible: true
-    width: 320
-    height: 240
-    color: "#4c5cdc"
-    title: qsTr("Hello World")
+    width: 500
+    height: 500
+    color: cBACKGROUND
+    title: qsTr("2048")
 
-    Rectangle {
-        id: rectangle
-        width: 100
-        height: 50
-        color: "#6be1ef"
-        anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter; margins: 20 }
+    // COLORS
+    property var cPRIMARY: "#eaf0ce"
+    property var cSECONDARY: "#7d8491"
+    property var cTERTIARY: "574b60"
+    property var cBACKGROUND: "#3f334d"
+    property var cTEXT_COLOR: "#c0c5c1"
 
-        Text {
-            id: element
-            x: 100
-            y: 50
-            color: "#200cc6"
-            text: vueObjetCpt.cptQML
-            Keys.onPressed: {
-                switch (event.key) {
-                case Qt.Key_Up:
-                    vueObjetCpt.increment();
-                    break;
-                case Qt.Key_Down:
-                    vueObjetCpt.decrement();
-                    break;
+    Row {
+        id: row
+        width: parent.width
+        height: parent.height
+
+        Rectangle {
+            id: menu
+            height: parent.height/5
+            width: parent.width
+            color: "#00000000"
+            anchors.top: parent.top
+            anchors.topMargin: 0
+
+            Grid {
+                id: grid1
+                anchors.fill: parent
+
+                Rectangle {
+                    id: new_game
+                    width: parent.width/4
+                    height: parent.height
+                    color: cPRIMARY
+                    anchors.rightMargin: 0
+                    anchors.right: undo.left
+
+                    Text {
+                        id: new_game_text
+                        color: cTEXT_COLOR
+                        text: qsTr("New\nGame")
+                        font.bold: true
+                        width: parent.width
+                        height: parent.height
+                        font.family: "Tahoma"
+                        fontSizeMode: Text.Fit
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        font.pixelSize: 20
+                    }
+                }
+
+                Text {
+                    id: title
+                    color: cTEXT_COLOR
+                    text: qsTr("2048")
+                    height: parent.height
+                    width: parent.width/2
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.bold: true
+                    fontSizeMode: Text.Fit
+                    font.pixelSize: 50
+                }
+
+                Rectangle {
+                    id: undo
+                    width: parent.width/4
+                    height: parent.height
+                    color: cSECONDARY
+                    anchors.right: parent.right
+
+                    Text {
+                        id: undo_text
+                        color: cTEXT_COLOR
+                        text: qsTr("Undo")
+                        width: parent.width
+                        height: parent.height
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        font.family: "Tahoma"
+                        font.bold: true
+                        fontSizeMode: Text.Fit
+                        font.pixelSize: 20
+                    }
                 }
             }
-            font.bold: true
-            font.pixelSize: 34
-            anchors { horizontalCenter: parent.horizontalCenter; verticalCenter: parent.verticalCenter}
-            focus: true
         }
-        transformOrigin: Item.Center
+
+        Grid {
+            id: grid
+            height: parent.height*4/5
+            width: parent.width
+            anchors.top: menu.bottom
+            anchors.left: parent.left
+        }
     }
 }
+
+/*##^##
+Designer {
+    D{i:4;anchors_height:200;anchors_width:200}D{i:7;anchors_height:200;anchors_width:200}
+D{i:2;anchors_width:200;anchors_x:0}D{i:9;anchors_height:400;anchors_width:400}D{i:1;anchors_height:490;anchors_width:442;anchors_x:0;anchors_y:0}
+}
+##^##*/

@@ -13,18 +13,18 @@ int main(int argc, char *argv[])
     Damier d = Damier(4);
     int movement;
 
-   while (!d.isDefeat())
-   {
-       d.consolePrint();
+//   while (!d.isDefeat())
+//   {
+//       d.consolePrint();
 
-       cout << "   0 : UP" << endl;
-       cout << "   1 : RIGHT" << endl;
-       cout << "   2 : DOWN" << endl;
-       cout << "   3 : LEFT" << endl;
-       cout << "Movement : ";
-       cin >> movement;
-       d.process(movement);
-   }
+//       cout << "   0 : UP" << endl;
+//       cout << "   1 : RIGHT" << endl;
+//       cout << "   2 : DOWN" << endl;
+//       cout << "   3 : LEFT" << endl;
+//       cout << "Movement : ";
+//       cin >> movement;
+//       d.process(movement);
+//   }
 
 
     // QT quick application

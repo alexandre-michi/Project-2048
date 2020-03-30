@@ -26,20 +26,33 @@ Window {
             height: parent.height/5
             width: parent.width
             color: "#00000000"
-            anchors.top: parent.top
-            anchors.topMargin: 0
+//            anchors.top: parent.top
+//            anchors.topMargin: 0
 
             Grid {
                 id: grid1
                 anchors.fill: parent
+
+                Text {
+                    id: title
+                    color: cTEXT_COLOR
+                    text: qsTr("2048")
+                    height: parent.height
+                    width: parent.width/2
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.bold: true
+                    fontSizeMode: Text.Fit
+                    font.pixelSize: 50
+                }
 
                 Rectangle {
                     id: new_game
                     width: parent.width/4
                     height: parent.height
                     color: cPRIMARY
-                    anchors.rightMargin: 0
-                    anchors.right: undo.left
+//                    anchors.rightMargin: 0
+//                    anchors.right: undo.left
 
                     Text {
                         id: new_game_text
@@ -56,25 +69,12 @@ Window {
                     }
                 }
 
-                Text {
-                    id: title
-                    color: cTEXT_COLOR
-                    text: qsTr("2048")
-                    height: parent.height
-                    width: parent.width/2
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    font.bold: true
-                    fontSizeMode: Text.Fit
-                    font.pixelSize: 50
-                }
-
                 Rectangle {
                     id: undo
                     width: parent.width/4
                     height: parent.height
                     color: cSECONDARY
-                    anchors.right: parent.right
+//                    anchors.right: parent.right
 
                     Text {
                         id: undo_text
@@ -94,11 +94,11 @@ Window {
         }
 
         Grid {
-            id: grid
+            id: grid_damier
             height: parent.height*4/5
             width: parent.width
-            anchors.top: menu.bottom
-            anchors.left: parent.left
+//            anchors.top: menu.bottom
+//            anchors.left: parent.left
         }
     }
 }

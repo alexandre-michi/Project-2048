@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import DamierQML 1.0
 
 Window {
     id: window
@@ -8,6 +9,7 @@ Window {
     height: 500
     color: cBACKGROUND
     title: qsTr("2048")
+
 
     // COLORS
     property string cPRIMARY: "#eaf0ce"

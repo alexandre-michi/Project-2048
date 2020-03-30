@@ -17,6 +17,7 @@ private:
 
 public:
     explicit DamierQML(QObject *parent = nullptr);
+    void setDamierQML();
 
     void setScore(unsigned short val);
 

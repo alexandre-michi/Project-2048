@@ -10,11 +10,11 @@ Window {
     title: qsTr("2048")
 
     // COLORS
-    property var cPRIMARY: "#eaf0ce"
-    property var cSECONDARY: "#7d8491"
-    property var cTERTIARY: "574b60"
-    property var cBACKGROUND: "#3f334d"
-    property var cTEXT_COLOR: "#c0c5c1"
+    property string cPRIMARY: "#eaf0ce"
+    property string cSECONDARY: "#7d8491"
+    property string cTERTIARY: "574b60"
+    property string cBACKGROUND: "#3f334d"
+    property string cTEXT_COLOR: "#c0c5c1"
 
     Row {
         id: row

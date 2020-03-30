@@ -3,6 +3,7 @@
 #include <QtQml>
 
 #include "damier.h"
+#include "damierqml.h"
 
 #include <iostream>
 
@@ -29,8 +30,10 @@ int main(int argc, char *argv[])
 
     // QT quick application
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
     QGuiApplication app(argc, argv);
+
+    // Register Tile to be available in QML
+    qmlRegisterType<DamierQML>("DamierQML", 1, 0, "DamierQML");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

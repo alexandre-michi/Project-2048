@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import DamierQML 1.0
 
 Window {
     id: window
@@ -8,6 +9,7 @@ Window {
     height: 500
     color: cBACKGROUND
     title: qsTr("2048")
+
 
     // COLORS
     property var cPRIMARY: "#eaf0ce"
@@ -99,6 +101,15 @@ Window {
             width: parent.width
             anchors.top: menu.bottom
             anchors.left: parent.left
+
+            // Instanciation de la classe DamierQML
+            DamierQML {
+                id: damier
+            }
+
+
+
+
         }
     }
 }

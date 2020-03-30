@@ -11,6 +11,7 @@ class DamierQML: public QObject
 
 public:
     explicit DamierQML(QObject *parent = nullptr);
+    void setDamierQML();
 
 signals:
     void damierChanged();

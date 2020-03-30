@@ -1,6 +1,6 @@
 #include "damierqml.h"
 
-DamierQML::DamierQML()
+DamierQML::DamierQML(QObject)
 {
-
+    Damier D = Damier(4);
 }

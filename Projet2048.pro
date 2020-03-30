@@ -15,10 +15,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     damier.cpp \
+    damierqml.cpp \
     main.cpp \
 
 HEADERS += \
-    damier.h \
+    damier.h \ \
+    damierqml.h
 
 RESOURCES += qml.qrc \
     qml.qrc

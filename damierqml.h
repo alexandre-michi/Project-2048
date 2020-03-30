@@ -1,11 +1,20 @@
 #ifndef DAMIERQML_H
 #define DAMIERQML_H
+#include "damier.h"
+#include <QObject>
+#include <QString>
 
 
-class DamierQML
+class DamierQML: public QObject
 {
+    Q_OBJECT
+
 public:
-    DamierQML();
+    explicit DamierQML(QObject *parent = nullptr);
+
+signals:
+    void damierChanged();
+
 };
 
 #endif // DAMIERQML_H

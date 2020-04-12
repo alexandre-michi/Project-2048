@@ -16,19 +16,21 @@ class DamierQML: public QObject
 private:
     int score;
     int size;
-    QQuickItem ** tiles;
+    QObject ** tiles;
     Damier *D;
+    std::map<std::string, QString> COLORS;
 
 public:
-    explicit DamierQML(QQmlEngine *engine = nullptr, QObject *parent = nullptr, QQuickItem *root = nullptr);
+    explicit DamierQML(QObject *parent = nullptr, QQuickItem *root = nullptr);
     void setTilesParent(QObject *parent, QQuickItem *root);
-//    void setDamierQML();
 
     void setScore(unsigned short val);
+    Q_INVOKABLE void updateTilesContent(int key);
 
 signals:
     void damierChanged();
 
 };
+
 
 #endif // DAMIERQML_H

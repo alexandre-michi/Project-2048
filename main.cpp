@@ -31,13 +31,9 @@ int main(int argc, char *argv[])
     view->setSource(url);
 
     QObject *main_grid = view->rootObject()->findChild<QObject*>("main_grid");
-//    QQuickItem *root = view->rootObject()->findChild<QQuickItem*>("main_grid");
     QQuickItem *root = view->rootObject();
-    DamierQML damierQML(view->engine(), main_grid, root); // instanciate new DamierQML object with parent=main_grid
-    view->engine()->rootContext()->setContextProperty("damierQML", &damierQML); // link object damierQML with QML document
-
-
-//    QObject *main_grid = getObject(view->engine(), "main_grid");
+    DamierQML damierQML(main_grid, root); // instanciate new DamierQML object with parent=main_grid
+    view->engine()->rootContext()->setContextProperty("vDamierQML", &damierQML); // link object damierQML with QML document
 
     view->show();
 

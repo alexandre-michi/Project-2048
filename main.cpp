@@ -10,24 +10,10 @@
 
 using namespace std;
 
-QObject* getObject(const QQmlApplicationEngine &engine, QString objectName)
-{
-    // Get object by name
-    QObject *object = nullptr;
-    QList<QObject*> lObj = engine.rootObjects();
-    for (int i = 0; i < lObj.size(); ++i)
-    {
-        QObject *obj = lObj.at(i);
-        if(obj != nullptr)
-        {
-            object = obj->findChild<QObject*>(objectName);
-            if(object != nullptr){
-                break;
-            }
-        }
-    } return object;
-}
 
+// #########################################################################
+//                              Play 2048 in GUI
+// #########################################################################
 
 int main(int argc, char *argv[])
 {

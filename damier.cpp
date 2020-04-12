@@ -226,3 +226,7 @@ void Damier::consolePrint()
         std::cout << std::endl;
     }
 }
+
+int ** Damier::getTab(){
+    return tab;
+}

@@ -17,11 +17,12 @@ class Damier
         void process(int movement);
         std::queue<int> clearArray(const int t[], int mvt); // lifo ie un paquet de gâteaux
         void consolePrint();
+        int ** getTab();
 };
 
-int const UP = 0;
-int const RIGHT = 1;
-int const DOWN = 2;
-int const LEFT = 3;
+const int UP = 0;
+const int RIGHT = 1;
+const int DOWN = 2;
+const int LEFT = 3;
 
 #endif // DAMIER_H

@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QtQml>
+#include <QQuickView>
 
 #include "damier.h"
 #include "damierqml.h"
@@ -30,9 +31,42 @@ QObject* getObject(const QQmlApplicationEngine &engine, QString objectName)
 
 int main(int argc, char *argv[])
 {
-    Damier d = Damier(4);
-    int movement;
+    // QT quick application
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication app(argc, argv);
 
+    // Register Tile to be available in QML
+    qmlRegisterType<DamierQML>("DamierQML", 1, 0, "DamierQML");
+
+    QQuickView *view = new QQuickView;
+
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+
+    view->setSource(url);
+
+    QObject *main_grid = view->rootObject()->findChild<QObject*>("main_grid");
+//    QQuickItem *root = view->rootObject()->findChild<QQuickItem*>("main_grid");
+    QQuickItem *root = view->rootObject();
+    DamierQML damierQML(view->engine(), main_grid, root); // instanciate new DamierQML object with parent=main_grid
+    view->engine()->rootContext()->setContextProperty("damierQML", &damierQML); // link object damierQML with QML document
+
+
+//    QObject *main_grid = getObject(view->engine(), "main_grid");
+
+    view->show();
+
+
+    return app.exec();
+}
+
+// #########################################################################
+//                          Play 2048 in the console
+// #########################################################################
+
+//int main(int argc, char *argv[])
+//{
+//    Damier d = Damier(4);
+//    int movement;
 //   while (!d.isDefeat())
 //   {
 //       d.consolePrint();
@@ -45,23 +79,4 @@ int main(int argc, char *argv[])
 //       cin >> movement;
 //       d.process(movement);
 //   }
-
-
-    // QT quick application
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication app(argc, argv);
-
-    // Register Tile to be available in QML
-    qmlRegisterType<DamierQML>("DamierQML", 1, 0, "DamierQML");
-
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-                     &app, [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
-    engine.load(url);
-
-    return app.exec();
-}
+//}

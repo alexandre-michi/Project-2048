@@ -5,19 +5,24 @@
 #include <QString>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
+#include <QQuickItem>
 
 
 class DamierQML: public QObject
 {
     Q_OBJECT
-//    Q_PROPERTY(unsigned short _score READ score WRITE setScore NOTIFY valueChanged)
+//    Q_PROPERTY(int score READ score WRITE setScore NOTIFY damierChanged)
 
 private:
-    unsigned short _score;
+    int score;
+    int size;
+    QQuickItem ** tiles;
+    Damier *D;
 
 public:
-    explicit DamierQML(QObject *parent = nullptr);
-    void setDamierQML();
+    explicit DamierQML(QQmlEngine *engine = nullptr, QObject *parent = nullptr, QQuickItem *root = nullptr);
+    void setTilesParent(QObject *parent, QQuickItem *root);
+//    void setDamierQML();
 
     void setScore(unsigned short val);
 

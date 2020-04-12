@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>button.qml</file>
-        <file>tile.qml</file>
+        <file>MyButton.qml</file>
+        <file>MyTile.qml</file>
     </qresource>
 </RCC>

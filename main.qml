@@ -47,6 +47,16 @@ Rectangle {
                 txt: qsTr("New\nGame")
                 txt_color: cTEXT_COLOR
                 bg_color: cPRIMARY
+
+                MouseArea {
+                    height: parent.height
+                    width: parent.width
+                    acceptedButtons: Qt.LeftButton
+                    onClicked: {
+                        if (mouse.button === Qt.LeftButton)
+                            vDamierQML.newGame()
+                    }
+                }
             }
 
             MyButton {
@@ -54,6 +64,16 @@ Rectangle {
                 txt: qsTr("Undo")
                 txt_color: cTEXT_COLOR
                 bg_color: cSECONDARY
+
+                MouseArea {
+                    height: parent.height
+                    width: parent.width
+                    acceptedButtons: Qt.LeftButton
+                    onClicked: {
+                        if (mouse.button === Qt.LeftButton)
+                            vDamierQML.undo()
+                    }
+                }
             }
         }// Row
 

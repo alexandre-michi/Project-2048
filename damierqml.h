@@ -24,6 +24,7 @@ public:
     explicit DamierQML(QObject *parent = nullptr, QQuickItem *root = nullptr);
     QString readScore ();
     Q_INVOKABLE void updateTilesContent(int key);
+    Q_INVOKABLE void new_game();
 
 signals:
     void damierChanged();

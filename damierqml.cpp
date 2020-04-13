@@ -39,6 +39,16 @@ DamierQML::DamierQML(QObject *parent, QQuickItem *root): QObject(parent)
 }
 
 /*
+ * Destructeur
+ */
+void DamierQML::newGame()
+{
+    delete D;
+    D = new Damier(size);
+}
+
+
+/*
  * Met à jour le contenu des cases
  * @params key : mouvement demandé par le joueur
  */
@@ -73,6 +83,12 @@ void DamierQML::updateTilesContent(int key){
     }
 }
 
+
+/*
+ * Lis le score
+ */
 QString DamierQML::readScore(){
     return QString::number(score);
 }
+
+

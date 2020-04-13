@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 
     QQuickView *view = new QQuickView;
 
+    // Path to display window
     const QUrl url(QStringLiteral("qrc:/main.qml"));
 
     view->setSource(url);
@@ -34,7 +35,6 @@ int main(int argc, char *argv[])
     QQuickItem *root = view->rootObject();
     DamierQML damierQML(main_grid, root); // instanciate new DamierQML object with parent=main_grid
     view->engine()->rootContext()->setContextProperty("vDamierQML", &damierQML); // link object damierQML with QML document
-
     view->show();
 
 

@@ -31,13 +31,10 @@ Damier::Damier(int size)
 Damier::~Damier()
 {
     std::cout << "Destruction !" << std::endl;
-}
-
-/*
- * Renvoie le damier
- */
-int ** Damier::getTab(){
-    return tab;
+    for(int i=0; i<Size; i++){
+        delete [] tab[i];
+    }
+    delete [] tab;
 }
 
 /*

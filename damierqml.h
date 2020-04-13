@@ -22,14 +22,10 @@ private:
 
 public:
     explicit DamierQML(QObject *parent = nullptr, QQuickItem *root = nullptr);
-    void setTilesParent(QObject *parent, QQuickItem *root);
-
-    void setScore(unsigned short val);
     Q_INVOKABLE void updateTilesContent(int key);
 
 signals:
     void damierChanged();
-
 };
 
 

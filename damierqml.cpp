@@ -37,17 +37,24 @@ DamierQML::DamierQML(QObject *parent, QQuickItem *root): QObject(parent)
 
 void DamierQML::updateTilesContent(int key){
     D->process(key);
-    int ** t = D->getTab();
+    if (!D->isDefeat()){
+        int ** t = D->getTab();
 
-    for(int i=0; i<size; i++){
-        for(int j=0; j<size; j++){
-            tiles[i*size+j]->setProperty("color", COLORS[to_string(t[i][j])]);
-            if (t[i][j] != 0){
-                tiles[i*size+j]->setProperty("tileLbl", QString::number(t[i][j]));
-            } else {
-                tiles[i*size+j]->setProperty("tileLbl", "");
+        for(int i=0; i<size; i++){
+            for(int j=0; j<size; j++){
+                tiles[i*size+j]->setProperty("color", COLORS[to_string(t[i][j])]);
+                if (t[i][j] != 0){
+                    tiles[i*size+j]->setProperty("tileLbl", QString::number(t[i][j]));
+                } else {
+                    tiles[i*size+j]->setProperty("tileLbl", "");
+                }
             }
         }
+        damierChanged();
     }
-    damierChanged();
+
+    else {
+        cout << "Game Over !" << endl;
+    }
+
 }

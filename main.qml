@@ -5,8 +5,8 @@ import DamierQML 1.0
 Rectangle {
     id: window
     visible: true
-    width: 500
     height: 500
+    width: height*4/5
     color: cBACKGROUND
     //    title: qsTr("2048")
 
@@ -39,7 +39,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 font.bold: true
                 fontSizeMode: Text.Fit
-                font.pixelSize: 50
+                font.pixelSize: 40
             }
 
             MyButton {

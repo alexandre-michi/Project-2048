@@ -14,6 +14,7 @@ Damier::Damier(int size)
 {
     Size = size;
     tab = new int*[Size];
+    score = 0;
 
     for(int i=0; i<Size; i++){
         tab[i] = new int[Size];
@@ -136,6 +137,7 @@ void Damier::process(int movement)
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[index][j] = curr_num * 2; // fill tab
+                    score += curr_num * 2;        // update score
                     index++;                      // increase index
                 }
                 else // no fustion needed
@@ -168,6 +170,7 @@ void Damier::process(int movement)
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[index][j] = curr_num * 2; // fill tab
+                    score += curr_num * 2;        // update score
                     index--;                      // increase index
                 }
                 else // no fustion needed
@@ -199,6 +202,7 @@ void Damier::process(int movement)
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[i][index] = curr_num * 2; // fill tab
+                    score += curr_num * 2;        // update score
                     index++;                      // increase index
                 }
                 else // no fustion needed 
@@ -229,6 +233,7 @@ void Damier::process(int movement)
                 {
                     my_queue.pop();               // pop because value already processed
                     tab[i][index] = curr_num * 2; // fill tab
+                    score += curr_num * 2;        // update score
                     index--;                      // decrease index
                 }
                 else // no fustion needed
@@ -259,5 +264,3 @@ void Damier::consolePrint()
         std::cout << std::endl;
     }
 }
-
-

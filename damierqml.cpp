@@ -61,6 +61,27 @@ void DamierQML::updateTilesContent(int key){
     }
 }
 
-QString DamierQML::readScore(){
-    return QString::number(score);
+void DamierQML::undo(){
+    // Undo in damier.cpp (ie, get last tab)
+    D->undo();
+
+    // Update display
+    int ** t = D->getTab();
+
+    for(int i=0; i<size; i++){
+        for(int j=0; j<size; j++){
+            tiles[i*size+j]->setProperty("color", COLORS[to_string(t[i][j])]);
+            if (t[i][j] != 0){
+                tiles[i*size+j]->setProperty("tileLbl", QString::number(t[i][j]));
+            } else {
+                tiles[i*size+j]->setProperty("tileLbl", "");
+            }
+        }
+    }
+    // Update score
+    score = D->getScore();
+
+    // Notify changes
+    damierChanged();
+    scoreChanged();
 }

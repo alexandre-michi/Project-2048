@@ -11,13 +11,17 @@ Damier::Damier(int size)
 {
     Size = size;
     tab = new int*[Size];
+    last_tab = new int*[Size];
     score = 0;
+    already_undo = false;
 
     for(int i=0; i<Size; i++){
         tab[i] = new int[Size];
+        last_tab[i] = new int[Size];
         for(int j=0; j<Size; j++){
             tab[i][j] = 0;
-        }}
+        }
+    }
 
     randomTile();
 }
@@ -85,6 +89,13 @@ std::queue<int> Damier::clearArray(const int t[], int mvt)
 void Damier::process(int movement)
 {
     cout << "Process avec movement = " << movement << endl;
+
+    // If player has not used his 'undo' ability yet, save the current tab before playing...
+    if (already_undo != true){
+        copyArray(tab, last_tab);
+    }
+
+    // Then play
     if (movement == UP) 
     {
         for (int j = 0; j < Size; j++)
@@ -229,5 +240,22 @@ void Damier::consolePrint()
             std::cout << tab[i][j] << ' ';
         }
         std::cout << std::endl;
+    }
+}
+
+void Damier::undo(){
+    if (already_undo == false){
+        copyArray(last_tab, tab);
+        already_undo = true;
+    }
+}
+
+void Damier::copyArray(int ** values, int ** copy){
+    for (int i = 0; i < Size; i++)
+    {
+        for (int j = 0; j < Size; j++)
+        {
+            copy[i][j] = values[i][j];
+        }
     }
 }

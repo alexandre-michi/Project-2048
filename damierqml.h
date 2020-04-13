@@ -22,8 +22,10 @@ private:
 
 public:
     explicit DamierQML(QObject *parent = nullptr, QQuickItem *root = nullptr);
-    QString readScore ();
     Q_INVOKABLE void updateTilesContent(int key);
+    Q_INVOKABLE void undo();
+
+    QString readScore (){ return QString::number(score);};
 
 signals:
     void damierChanged();

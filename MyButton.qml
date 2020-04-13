@@ -1,5 +1,8 @@
 import QtQuick 2.0
 
+/*
+ * Components pour les boutons nouveau jeu et quitter
+ */
 Item {
     id: my_button
     width: parent.width/4

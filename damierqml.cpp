@@ -83,13 +83,6 @@ void DamierQML::updateTilesContent(int key){
     }
 }
 
-
-/*
- * Lis le score
- */
-QString DamierQML::readScore(){
-    return QString::number(score);
-
     
 void DamierQML::undo(){
     // Undo in damier.cpp (ie, get last tab)

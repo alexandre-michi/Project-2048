@@ -6,7 +6,10 @@
 using namespace std;
 
 
-// Constructeur : allocation de mémoire et initialisation à zéro
+/*
+ * Constructeur : allocation de mémoire et initialisation à zéro
+ * @params : taille du damier (ici obligatoire 4)
+ */
 Damier::Damier(int size)
 {
     Size = size;
@@ -21,13 +24,24 @@ Damier::Damier(int size)
     randomTile();
 }
 
-// Destructor
+/*
+ * Destructeur
+ */
 Damier::~Damier()
 {
     std::cout << "Destruction !" << std::endl;
 }
 
-// Place un 2 ou un 4 au hasard sur le damier
+/*
+ * Renvoie le damier
+ */
+int ** Damier::getTab(){
+    return tab;
+}
+
+/*
+ *  Place un 2 ou un 4 au hasard sur le damier
+ */
 void Damier::randomTile()
 {
     srand(time(NULL));
@@ -43,6 +57,9 @@ void Damier::randomTile()
     tab[i][j] = 2; // Possibilité de changer avec 4
 }
 
+/*
+ * Contrôle si on peut réaliser un mouvement dans le damier
+ */
 bool Damier::isDefeat()
 {
     for (int i = 0; i < Size; i++)
@@ -50,7 +67,8 @@ bool Damier::isDefeat()
         for (int j = 0; j < Size; j++)
         {
             int t = tab[i][j]; 
-            if (t == 0){ return false;} // there is an empty tile
+            // there is an empty tile
+            if (t == 0){ return false;}
             // there is a possibility for fusion :
             else if (i - 1 >= 0 && t == tab[i - 1][j]){ return false;}
             else if (i+1 < Size && t == tab[i + 1][j]){ return false;}
@@ -61,19 +79,27 @@ bool Damier::isDefeat()
     return true;   
 }
 
+/*
+ * Renvoie une file contenant la ligne/colonne concernée par le mouvement (sans les éventuels zéros)
+ * @params t : damier
+ * @params mvt : mouvement
+ */
+
 std::queue<int> Damier::clearArray(const int t[], int mvt)
 {
-    std::queue<int> my_queue; // lifo ie un paquet de gâteaux
-    if (mvt == UP || mvt == LEFT) // remplissage par la gauche
+    std::queue<int> my_queue; // lifo
+    // remplissage par la gauche
+    if (mvt == UP || mvt == LEFT)
     {
         for (int i = 0; i < Size; i++)
         {
             if (t[i] != 0){ my_queue.push(t[i]);}
         }
     }
+    // remplissage par la droite
     else
     {        
-        for (int i = Size-1; i >= 0; i--) // remplissage par la droite
+        for (int i = Size-1; i >= 0; i--)
         {
             if (t[i] != 0){ my_queue.push(t[i]);}
         }
@@ -81,6 +107,10 @@ std::queue<int> Damier::clearArray(const int t[], int mvt)
     return my_queue;
 }
 
+/*
+ * Réalise un mouvement global sur tout le damier
+ * @params mvt : mouvement demandé par le joueur
+ */
 void Damier::process(int movement)
 {
     cout << "Process avec movement = " << movement << endl;
@@ -215,6 +245,9 @@ void Damier::process(int movement)
     randomTile();
 }
 
+/*
+ * Affichage dans la console
+ */
 void Damier::consolePrint()
 {
     for (int i = 0; i < Size; i++)
@@ -227,6 +260,4 @@ void Damier::consolePrint()
     }
 }
 
-int ** Damier::getTab(){
-    return tab;
-}
+

@@ -3,6 +3,9 @@
 #include <string>
 using namespace std;
 
+/*
+ * Constructeur
+ */
 DamierQML::DamierQML(QObject *parent, QQuickItem *root): QObject(parent)
 {
     // Setting colors parameters for display
@@ -35,10 +38,17 @@ DamierQML::DamierQML(QObject *parent, QQuickItem *root): QObject(parent)
     }
 }
 
+/*
+ * Met à jour le contenu des cases
+ * @params key : mouvement demandé par le joueur
+ */
 void DamierQML::updateTilesContent(int key){
+
+    // Movement in the Damier class
     D->process(key);
     int ** t = D->getTab();
 
+    // Tiles are updates
     for(int i=0; i<size; i++){
         for(int j=0; j<size; j++){
             tiles[i*size+j]->setProperty("color", COLORS[to_string(t[i][j])]);
@@ -49,5 +59,7 @@ void DamierQML::updateTilesContent(int key){
             }
         }
     }
+
+    // Send signal
     damierChanged();
 }

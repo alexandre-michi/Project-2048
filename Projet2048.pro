@@ -1,6 +1,4 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += quick
 
 CONFIG += c++11 console
 
@@ -17,15 +15,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     damier.cpp \
+    damierqml.cpp \
     main.cpp \
-    mainwindow.cpp
 
 HEADERS += \
-    damier.h \
-    mainwindow.h
+    damier.h \ \
+    damierqml.h
 
-FORMS += \
-    mainwindow.ui
+RESOURCES += qml.qrc \
+    qml.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

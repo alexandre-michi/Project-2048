@@ -11,12 +11,14 @@ Rectangle {
     Text {
         id: lbl
         text: qsTr("")
+        color: cBACKGROUND
         width: parent.width
         height: parent.height
         fontSizeMode: Text.Fit
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.pixelSize: 24
+        font.bold: true
     }
 }
 

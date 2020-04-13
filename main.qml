@@ -32,7 +32,7 @@ Rectangle {
             Text {
                 id: title
                 color: cTEXT_COLOR
-                text: qsTr("2048")
+                text: vDamierQML.score
                 height: parent.height
                 width: parent.width/2
                 verticalAlignment: Text.AlignVCenter

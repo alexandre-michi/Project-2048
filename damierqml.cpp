@@ -50,11 +50,17 @@ void DamierQML::updateTilesContent(int key){
                 }
             }
         }
+        score = D->getScore();
+
         damierChanged();
+        scoreChanged();
     }
 
     else {
         cout << "Game Over !" << endl;
     }
+}
 
+QString DamierQML::readScore(){
+    return QString::number(score);
 }

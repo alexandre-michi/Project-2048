@@ -8,6 +8,7 @@ class Damier
     private :
         int Size;
         int ** tab;
+        int score;
 
     public:
         Damier(int size);
@@ -17,7 +18,9 @@ class Damier
         void process(int movement);
         std::queue<int> clearArray(const int t[], int mvt); // lifo ie un paquet de gâteaux
         void consolePrint();
-        int ** getTab();
+
+        int ** getTab() { return tab;};
+        int getScore(){ return score;};
 };
 
 const int UP = 0;

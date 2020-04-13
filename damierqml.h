@@ -11,10 +11,10 @@
 class DamierQML: public QObject
 {
     Q_OBJECT
-//    Q_PROPERTY(int score READ score WRITE setScore NOTIFY damierChanged)
+    Q_PROPERTY(QString score READ readScore NOTIFY scoreChanged)
 
 private:
-    int score;
+    int score = 2048;
     int size;
     QObject ** tiles;
     Damier *D;
@@ -22,10 +22,12 @@ private:
 
 public:
     explicit DamierQML(QObject *parent = nullptr, QQuickItem *root = nullptr);
+    QString readScore ();
     Q_INVOKABLE void updateTilesContent(int key);
 
 signals:
     void damierChanged();
+    void scoreChanged();
 };
 
 
